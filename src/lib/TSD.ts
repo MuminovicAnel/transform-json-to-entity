@@ -1,19 +1,18 @@
 import {
-  relative,
-  dirname,
-  parse
-} from "path";
-import {
-  writeFile,
   readFile,
   readFileSync,
-  unlink
+  unlink,
+  writeFile
 } from "fs";
 import {
+  dirname,
+  parse,
+  relative
+} from "path";
+import { ClassNode, Import } from "../lib";
+import {
   IClassNode,
-} from "..";
-import { ClassNode } from "./ClassNode";
-import { Import } from "./Import";
+} from "../Types";
 
 export class TSD {
   private _tabSize: number;
