@@ -1,0 +1,68 @@
+export declare class CodeWriter {
+    protected _savedConfig: CodeWriter;
+    protected _text: string;
+    protected _suffix: string;
+    protected _identSize: number;
+    protected _blockDepth: number;
+    protected _semicolonEnabled: boolean;
+    protected _joinSeparatorChar: string;
+    protected _forNextLine: boolean;
+    protected _currentWrapChar?: string;
+    protected _currentBlockChar?: string;
+    protected _identEnabled: boolean;
+    protected _newLined: boolean;
+    protected _closingChars: {
+        [key: string]: string;
+    };
+    readonly Text: string;
+    readonly IdentSize: number;
+    readonly SemicolonEnabled: boolean;
+    readonly ClosingChars: {
+        [key: string]: string;
+    };
+    readonly BlockDepth: number;
+    readonly CurrentBlockChar: string;
+    readonly CurrentWrapChar: string;
+    readonly JoinSeparatorChar: string;
+    readonly IdentEnabled: boolean;
+    readonly Suffix: string;
+    readonly NextLine: this;
+    SetJoinSeparatorChar(separator?: string, withSpace?: boolean): this;
+    SetSuffix(suffix?: string): void;
+    SetBlockDepth(depth: number): this;
+    SetIdentEnabled(ident: boolean): this;
+    IncrementBlockDepth(depth: number): this;
+    SetClosingChars(closingChars: {
+        [key: string]: string;
+    }): this;
+    SetCurrentWrapChar(char: string): this;
+    SetCurrentBlockChar(char: string): this;
+    SetSemicolonEnabled(semiColonEnabled: boolean): this;
+    SetIdentSize(size: number): this;
+    StartWrap(wrapChar?: string): this;
+    WriteJoin(...texts: string[]): this;
+    GetContent(): CodeWriter;
+    CommitContent(codeWriter: CodeWriter): void;
+    CloseWrap(wrapChar?: string): this;
+    DisableIdent(): this;
+    EnableIdent(): this;
+    DisableSemicolon(): this;
+    EnableSemicolon(): this;
+    Write(...texts: string[]): this;
+    WriteCond(cond: (texts: string[]) => any, ...texts: string[]): this;
+    WriteLineCond(cond: (texts: string[]) => any, ...texts: string[]): this;
+    CofirmLine(): void;
+    WriteLine(...texts: string[]): this;
+    AddNewLine(withSemicolon?: boolean, times?: number): this;
+    AddSpaceLine(): this;
+    StartBlock(text?: string, blockChar?: string): this;
+    CloseBlock(text?: string, blockChar?: string): this;
+    Ident(): this;
+    WriteSemicolon(): this;
+    AddSpaces(size: number): this;
+    WriteSuffix(): this;
+    LoadConfig(codeWriter: CodeWriter): this;
+    private edit;
+    private commit;
+    private getCloseChar;
+}
