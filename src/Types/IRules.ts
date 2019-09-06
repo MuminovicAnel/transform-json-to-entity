@@ -1,6 +1,4 @@
-import { Decorator } from "../lib";
-import { IExportRules } from "./IExportRules";
-import { IImport } from "./IImport";
+import { Decorator, IExportRules, IImport } from "..";
 
 export interface IRules {
   exportRules: IExportRules;

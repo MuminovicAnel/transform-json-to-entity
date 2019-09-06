@@ -1,7 +1,4 @@
-import { IExportRules } from "./IExportRules";
-import { IFieldNode } from "./IFieldNode";
-import { IImport } from "./IImport";
-import { INode } from "./INode";
+import { IExportRules, IFieldNode, IImport, INode } from "..";
 
 export interface IClassNode extends INode {
   Path: string;

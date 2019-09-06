@@ -1,4 +1,4 @@
-import { INamed } from "./INamed";
+import { INamed } from "..";
 
 export interface IImport extends INamed {
   Imports: ArrayLike<[string, string | undefined]>;

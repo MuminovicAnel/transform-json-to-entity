@@ -1,5 +1,4 @@
-import { IDecorator } from "../Types";
-import { Named } from "./Named";
+import { IDecorator, Named } from "..";
 
 export class Decorator extends Named implements IDecorator {
   private _arguments: any[] = [];

@@ -1,4 +1,4 @@
-import { INamed } from "../Types";
+import { INamed } from "..";
 
 export abstract class Named implements INamed {
   private _name: string;

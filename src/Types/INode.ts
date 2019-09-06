@@ -1,5 +1,4 @@
-import { IDecorator } from "./IDecorator";
-import { INamed } from "./INamed";
+import { IDecorator, INamed } from "..";
 
 export interface INode extends INamed {
   Decorators: ArrayLike<IDecorator>;
