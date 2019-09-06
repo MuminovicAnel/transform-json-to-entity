@@ -1,4 +1,4 @@
-import { IImport } from "..";
+import { IImport } from "../Types";
 import { Named } from "./Named";
 
 export class Import extends Named implements IImport {

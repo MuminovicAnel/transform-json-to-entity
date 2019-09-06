@@ -1,8 +1,6 @@
-import {
-  Accessor,
-  INode,
-  IRelation
-} from "..";
+import { Accessor } from "./Accessor";
+import { INode } from "./INode";
+import { IRelation } from "./IRelation";
 
 export interface IFieldNode extends INode {
   Accessors: Accessor[];

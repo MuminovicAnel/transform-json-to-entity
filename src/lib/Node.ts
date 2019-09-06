@@ -1,5 +1,5 @@
 import { Named } from "./Named";
-import { Decorator } from ".";
+import { Decorator } from "./Decorator";
 
 export abstract class Node extends Named {
   private _decorators: Decorator[] = [];
