@@ -1,5 +1,5 @@
-import { CodeWriter } from "./CodeWriter";
-import { Import, space, str, Decorator, FieldNode, ClassNode } from "..";
+import { ClassNode, CodeWriter, Decorator, FieldNode, Import } from "../lib";
+import { space, str } from "../Utils";
 
 export class TsCodeWriter extends CodeWriter {
   WriteClass(classNode: ClassNode) {

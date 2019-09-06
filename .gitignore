@@ -4,6 +4,7 @@ test
 src/**.js
 .idea/*
 dist
+*.tgz
 
 coverage
 .nyc_output

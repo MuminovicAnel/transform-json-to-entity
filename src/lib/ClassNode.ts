@@ -1,10 +1,6 @@
 import { normalize } from "path";
-import {
-  IClassNode,
-  IExportRules,
-} from "..";
-import { Decorator } from "./Decorator";
-import { FieldNode } from "./FieldNode";
+import { Decorator, FieldNode } from "../lib";
+import { IClassNode, IExportRules } from "../Types";
 import { Import } from "./Import";
 import { Node } from "./Node";
 import { TsCodeWriter } from "./TsCodeWriter";
