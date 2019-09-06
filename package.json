@@ -1,6 +1,6 @@
 {
   "name": "transform-json-to-entity",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Transform json schema to an entity Typeorm",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
