@@ -3,9 +3,11 @@ build
 test
 src/**.js
 .idea/*
+dist
 
 coverage
 .nyc_output
 *.log
+
 
 yarn.lock
