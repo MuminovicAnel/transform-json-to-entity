@@ -1,5 +1,4 @@
-import { ClassNode, Decorator, Node } from "../lib";
-import { Accessor, IFieldNode, IRelation } from "../Types";
+import { Accessor, ClassNode, Decorator, IFieldNode, IRelation, Node} from "..";
 
 export class FieldNode extends Node implements IFieldNode {
   private _accessors: Accessor[] = [];

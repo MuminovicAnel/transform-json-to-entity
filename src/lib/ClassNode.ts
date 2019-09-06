@@ -1,9 +1,5 @@
 import { normalize } from "path";
-import { Decorator, FieldNode } from "../lib";
-import { IClassNode, IExportRules } from "../Types";
-import { Import } from "./Import";
-import { Node } from "./Node";
-import { TsCodeWriter } from "./TsCodeWriter";
+import { Decorator, FieldNode, IClassNode, IExportRules, Import, Node, TsCodeWriter } from "..";
 
 export class ClassNode extends Node implements IClassNode {
   private _path?: string;

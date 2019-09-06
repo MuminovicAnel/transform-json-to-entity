@@ -1,4 +1,4 @@
-import { getSpaces } from "../Utils";
+import { getSpaces } from "..";
 
 export class CodeWriter {
   protected _savedConfig: CodeWriter;

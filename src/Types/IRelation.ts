@@ -1,4 +1,4 @@
-import { IFieldNode } from ".";
+import { IFieldNode } from "..";
 
 export interface IRelation {
   FieldNode?: IFieldNode;

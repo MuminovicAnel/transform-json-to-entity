@@ -2,17 +2,19 @@ import {
   readFile,
   readFileSync,
   unlink,
-  writeFile
+  writeFile,
+  openSync
 } from "fs";
 import {
   dirname,
   parse,
   relative
 } from "path";
-import { ClassNode, Import } from "../lib";
 import {
+  ClassNode,
   IClassNode,
-} from "../Types";
+  Import,
+} from "..";
 
 export class TSD {
   private _tabSize: number;
@@ -46,6 +48,7 @@ export class TSD {
 
   Load() {
     try {
+      openSync(this._schemaFile, 'w');
       const fileContent = readFileSync(this._schemaFile, "utf8");
       if (fileContent) {
         const classNodes: IClassNode[] = JSON.parse(fileContent);
