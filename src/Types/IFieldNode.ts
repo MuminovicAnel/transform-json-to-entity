@@ -3,7 +3,7 @@ import { Accessor , INode, IRelation} from "..";
 export interface IFieldNode extends INode {
   Accessors: Accessor[];
   TypeName: string;
-  Args: string;
+  Args: Object[];
   DefaultValue: any;
   IsJson: boolean;
   IsArray: boolean;

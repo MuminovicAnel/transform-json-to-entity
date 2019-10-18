@@ -19,7 +19,7 @@ import {
 export class TSD {
   private _tabSize: number;
   private _loadedClasses: ClassNode[] = [];
-  private _schemaFile = "./schema.json";
+  //private _schemaFile = "./schema.json";
 
   get LoadedClasses() {
     return this._loadedClasses;
@@ -38,7 +38,7 @@ export class TSD {
   }
 
   constructor() {
-    this.Load();
+    //this.Load();
   }
 
   AddLoadedClass(...classNodes: ClassNode[]) {
@@ -46,35 +46,35 @@ export class TSD {
     return this;
   }
 
-  Load() {
-    try {
-      openSync(this._schemaFile, 'w');
-      const fileContent = readFileSync(this._schemaFile, "utf8");
-      if (fileContent) {
-        const classNodes: IClassNode[] = JSON.parse(fileContent);
-        this._loadedClasses = ClassNode.parseObjects(classNodes);
+  // Load() {
+  //   try {
+  //     openSync(this._schemaFile, 'w');
+  //     const fileContent = readFileSync(this._schemaFile, "utf8");
+  //     if (fileContent) {
+  //       const classNodes: IClassNode[] = JSON.parse(fileContent);
+  //       this._loadedClasses = ClassNode.parseObjects(classNodes);
 
-        //Load relation
-        this._loadedClasses.map((loadedClass) => {
-          loadedClass.Fields.map((field) => {
-            if (field.StaticRelation) {
-              this._loadedClasses.map((classRelation) => {
-                if (classRelation.Name === field.StaticRelation.ClassNodeName) {
-                  classRelation.Fields.map((fieldRelation) => {
-                    if (fieldRelation.Name === field.StaticRelation.FieldNodeName) {
-                      field.SetRelation(fieldRelation);
-                    }
-                  });
-                }
-              });
-            }
-          });
-        });
-      }
-    } catch (err) {
-      throw (err);
-    }
-  }
+  //       //Load relation
+  //       this._loadedClasses.map((loadedClass) => {
+  //         loadedClass.Fields.map((field) => {
+  //           if (field.StaticRelation) {
+  //             this._loadedClasses.map((classRelation) => {
+  //               if (classRelation.Name === field.StaticRelation.ClassNodeName) {
+  //                 classRelation.Fields.map((fieldRelation) => {
+  //                   if (fieldRelation.Name === field.StaticRelation.FieldNodeName) {
+  //                     field.SetRelation(fieldRelation);
+  //                   }
+  //                 });
+  //               }
+  //             });
+  //           }
+  //         });
+  //       });
+  //     }
+  //   } catch (err) {
+  //     throw (err);
+  //   }
+  // }
 
   async Write(classNode: ClassNode, persist: boolean = true) {
     if (classNode.Path) {
@@ -94,7 +94,7 @@ export class TSD {
       classNode.AddImport(...this.getFieldImports(classNode));
       await this.writeFile(classNode.Path, classNode.Content);
       if (persist) {
-        return await this.WriteSchemaFile();
+        //return await this.WriteSchemaFile();
       }
     } else {
       throw new Error(`Set a path to class: ${classNode.Name}`);
@@ -106,17 +106,17 @@ export class TSD {
     if (classNode) {
       this._loadedClasses.splice(this._loadedClasses.indexOf(classNode), 1);
       this.removeFile(classNode.Path);
-      this.WriteSchemaFile();
+      //this.WriteSchemaFile();
     }
     return classNode;
   }
 
-  async WriteSchemaFile() {
-    return await this.writeFile(
-      this._schemaFile,
-      JSON.stringify(this._loadedClasses.map((loadedClass) => loadedClass.ToObject()))
-    );
-  }
+  // async WriteSchemaFile() {
+  //   return await this.writeFile(
+  //     this._schemaFile,
+  //     JSON.stringify(this._loadedClasses.map((loadedClass) => loadedClass.ToObject()))
+  //   );
+  // }
 
   async WriteLoadedClasses() {
     const promises = this.LoadedClasses.map((loadedClass) => {

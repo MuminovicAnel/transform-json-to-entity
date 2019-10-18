@@ -3,7 +3,7 @@ import { Accessor, ClassNode, Decorator, IFieldNode, IRelation, Node} from "..";
 export class FieldNode extends Node implements IFieldNode {
   private _accessors: Accessor[] = [];
   private _typeName: string;
-  private _args: string;
+  private _args: Object[];
   private _isArray: boolean;
   private _isJson: boolean;
   private _isNullable: boolean;
@@ -145,7 +145,7 @@ export class FieldNode extends Node implements IFieldNode {
     return this;
   }
 
-  AddArgs(Args: string) {
+  AddArgs(Args: Object[]) {
     this._args = Args;
     return this;
   }

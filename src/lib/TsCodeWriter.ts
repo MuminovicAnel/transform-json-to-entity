@@ -110,12 +110,12 @@ export class TsCodeWriter extends CodeWriter {
   WriteTyped(
     name: string,
     typeName: string,
-    args: string,
+    args: Object[],
     isArray: boolean,
     isJson: boolean,
     isNullable: boolean
   ) {
-    if(isJson) return this.Write(`${name}${isNullable ? "?" : ""}: ${args}`);
+    if(isJson) return this.Write(`${name}${isNullable ? "?" : ""}: {${Object.entries(args).map(([k,v]) => { return k + ": " + v })}}`);
     else
     return this.Write(`${name}${isNullable ? "?" : ""}: ${typeName}${isArray ? "[]" : ""}`);
   }
